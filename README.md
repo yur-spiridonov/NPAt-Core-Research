@@ -5,7 +5,7 @@
 
 ---
 
-### 🚀 Key Features / Особенности
+### 🚀 Key Features 
 * **64-bit Mantissa:** Outperforms standard `double` (53-bit) by providing up to 19 significant digits.
 * **Integrity Flag (q):** Real-time tracking of precision loss during mantissa alignment.
 * **Scale Stability:** Reliable performance where standard double-precision types begin to produce "digital noise".
