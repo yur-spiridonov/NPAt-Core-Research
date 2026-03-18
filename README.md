@@ -3,7 +3,7 @@
 **High-precision computational engine for iterative financial and scientific calculations.**
 
 ## 🚀 The Mission
-Modern computing (IEEE 754) is prone to uncontrollable error accumulation in high-volume summation. **NPAt (Number with Point After t)** is a disruptive numerical format designed to ensure absolute precision, 9x faster performance, and hardware independence.
+Modern computing (IEEE 754) is prone to uncontrollable error accumulation in high-volume summation. **NPAt (Number with Point After t)** is a disruptive numerical format designed to ensure high precision, 9x faster performance, and hardware independence.
 
 ## 🛠 Key Technical Advantages
 * **Precision over Double:** Prevents "money drift" in financial audits where standard `double` fails after millions of iterations.
