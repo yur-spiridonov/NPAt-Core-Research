@@ -21,4 +21,17 @@ We test by summing `0.1` one million times using `volatile` variables to prevent
 - `NPAt_Core.lib`: Proprietary pre-compiled high-precision core (x64).
 
 ---
+🛠 How to Run 
+EN: To run this demo, you need Visual Studio 2022 (Windows, x64).
+
+Create a new C++ Console App project.
+
+Add main.cpp and NPAt_Interface.h to the project.
+
+Place NPAt_Core.lib in the project folder.
+
+Go to Project Properties -> Linker -> Input -> Additional Dependencies and add NPAt_Core.lib.
+
+Set the configuration to Release | x64 and press Ctrl+F5.
+---
 *Developed for research purposes. Internal algorithms and mantissa alignment logic are proprietary.*
