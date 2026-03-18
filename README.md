@@ -23,7 +23,7 @@ Modern computing (IEEE 754) is prone to uncontrollable error accumulation in hig
 ---
 ## 👤 About the Author: Iouri Spiridonov
 **Independent Researcher | Former Head of Laboratory at NPO "Agat"**
-* **20+ years of R&D** in mission-critical digital systems and nuclear electronics.
+* **20+ years of R&D** in mission-critical digital systems.
 * **USSR State Prize Laureate** & recipient of the Medal for Labor Distinction.
 * Expert in numerical algorithms and high-reliability hardware-software integration.
 Add main.cpp and NPAt_Interface.h to the project.
