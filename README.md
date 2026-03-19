@@ -46,11 +46,15 @@ This research demonstrates two distinct approaches based on the NPAt format:
 4. Set configuration to **Release | x64** and build.
 
 ---
+---
 ## 👤 About the Author: Iouri Spiridonov
 **Independent Researcher | Former Head of Laboratory at NPO "Agat"**
-* **20+ years of R&D** in mission-critical digital systems and nuclear electronics.
 * **USSR State Prize Laureate** & recipient of the Medal for Labor Distinction.
-* Expert in numerical algorithms and high-reliability hardware-software integration.
+* **Prolific Inventor:** Holder of **18 Invention Certificates** and **2 patents** in related fields of digital architecture and computational systems.
+* **Expertise:** Over 20 years of R&D in the **development of digital systems**, specializing in high-reliability hardware-software integration and numerical algorithms.
+* **Current Focus:** Optimization of binary arithmetic for modern CPU architectures (U.S. Patent Pending).
+
+---
 
 ---
 *Developed for research purposes. Internal algorithms and mantissa alignment logic are proprietary.*
