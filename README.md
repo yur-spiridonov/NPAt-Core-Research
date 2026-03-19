@@ -12,13 +12,26 @@ Modern computing (IEEE 754) suffers from structural inefficiencies and rapid dat
 * **FPU-Free Efficiency:** Performs complex floating-point math using pure integer bitwise logic. Ideal for high-performance computing and **Edge AI** on 8/16/32/64-bit registers.
 * **Performance:** Up to **9 times faster** than software-emulated IEEE 754 implementations.
 
+## 🎯 The Paradigm: Binary Hardware as a Tool for Decimal Computation
+Standard IEEE 754 is strictly binary-oriented, often ignoring the "representation error" that occurs the moment a decimal input is converted. This initial discrepancy becomes the foundation for cumulative distortion in iterative loops.
+
+**NPAt redefines the binary processor's role in decimal arithmetic:**
+* **Accountability for Conversion:** Unlike IEEE 754, the NPAt paradigm explicitly **accounts for the initial conversion error** of non-representable decimal inputs. This ensures that the starting point of any calculation is mathematically anchored to the original decimal data intent.
+* **Decimal-to-Decimal Integrity:** The system is engineered to provide the maximum achievable decimal precision on output, ensuring the final result remains consistent for audit and control purposes.
+* **Efficient Instrumentation:** While core operations leverage binary speed, the format acts as a precise instrument for decimal logic, providing a reliable "truth" for financial and scientific verification.
+
 ## 💡 Two Implementation Pathways
-This repository demonstrates two distinct approaches based on the NPAt format:
+
+This research demonstrates two distinct approaches based on the NPAt format:
+
 1. **Bit-for-Bit IEEE 754 Compatibility:** An alternative algorithm that produces results **identical** to the standard, but executes on the CPU without an FPU and significantly faster than emulation.
+   * **View implementation:** [yur-spiridonov/PresentationNPat](https://github.com/yur-spiridonov/PresentationNPat)
+
 2. **The NPAt Core Strategy (NPAt_Demo):** A native algorithm that exceeds the standard in precision and simplicity by fully utilizing the NPAt format features and modern CPU architecture.
+   * **Current Repository:** High-precision core with 64-bit mantissa.
 
 ## 📜 Intellectual Property & Research
-* **U.S. Patent Pending:** [USPTO № 19/254,239] – *Apparatus for iteratively summing binary equivalents of decimal numbers.*
+* **U.S. Patent Pending:** (USPTO № 19/254,239): *APPARATUS FOR ITERATIVELY SUMMING BINARY EQUIVALENTS OF DECIMAL NUMBERS.*
 * **TechRxiv Preprints:** Published research on decimal-to-binary equivalence and computational stability.
 
 ## 📥 Quick Start
