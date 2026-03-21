@@ -1,6 +1,8 @@
 
 # NPAt Core: A New Paradigm in Binary Arithmetic
 **High-efficiency computational engine for high-precision financial and scientific calculations.**
+# NPAt-Core-Research
+📄 **[Download Technical Presentation (PDF)]([ЗДЕСЬ_ВАША_ССЫЛКА](https://github.com/yur-spiridonov/NPAt-Core-Research/blob/main/NPAt_Core_Numerical_Integrity_Presentation.pdf))**
 
 ## 🚀 The Mission
 Modern computing (the current IEEE 754 standard) often faces structural inefficiencies and data distortion in high-volume summation. **NPAt (Number with Point After t)** is a disruptive numerical format designed to leverage the full hardware potential of modern CPUs, ensuring superior performance and controlled precision.
