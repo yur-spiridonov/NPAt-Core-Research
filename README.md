@@ -35,15 +35,13 @@ This research demonstrates two distinct approaches based on the NPAt format:
 ## 📥 Quick Start
 
 ### For Users (Demo)
-1.  Download `NPAt_Demo.exe`.
-2.  Run the application to compare **NPAt precision stability** against standard hardware **FPU drift**.
+1. Download **[NPAt_Demo.exe](https://github.com/yur-spiridonov/NPAt-Core-Research/blob/main/NPAt_Demo.exe)**.
+2. Run the application to compare **NPAt precision stability** against standard hardware **FPU drift**.
 
 ### For Developers (Integration)
-1.  Add `main.cpp` and `NPAt_Interface.h` to your C++ project.
-2.  Place `NPAt_Core.lib` in the project folder.
-3.  **In Visual Studio:** Project Properties -> Linker -> Input -> Additional Dependencies -> add `NPAt_Core.lib`.
-4.  Set configuration to **Release | x64** and build.
-
+1. Add **[main.cpp](https://github.com/yur-spiridonov/NPAt-Core-Research/blob/main/main.cpp)** and **[NPAt_Interface.h](https://github.com/yur-spiridonov/NPAt-Core-Research/blob/main/NPAt_Interface.h)** to your C++ project.
+2. Link **[NPAt_Core.lib](https://github.com/yur-spiridonov/NPAt-Core-Research/blob/main/NPAt_Core.lib)** (In Visual Studio: *Project Properties -> Linker -> Input -> Additional Dependencies*).
+3. Set configuration to **Release | x64** and build.
 ---
 ---
 ## 👤 About the Author: Iouri Spiridonov
