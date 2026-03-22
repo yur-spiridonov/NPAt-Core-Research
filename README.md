@@ -8,7 +8,7 @@ Modern computing (the current **IEEE 754** standard) often faces structural inef
 
 ## 🛠 Key Technical Advantages
 * **Architectural Synergy:** Unlike the current IEEE 754 standard, NPAt is natively optimized for **64-bit integer ALUs**. It bypasses FPU-specific overhead—such as subnormal numbers, mandatory normalization, and complex rounding modes—significantly reducing CPU cycles per operation.
-* **Superior Performance:** Up to **9 times faster** than software-emulated IEEE 754 decimal64 implementations. By utilizing native integer registers, NPAt challenges the efficiency of standard hardware `double` in high-precision computational chains.
+* **Superior Performance:** Up to **9 times faster** than software-emulated IEEE 754  implementations. By utilizing native integer registers, NPAt challenges the efficiency of standard hardware `double` in high-precision computational chains.
 * **Controlled Precision:** The architecture ensures longer retention of significant digits during long sequences of arbitrary values, minimizing the uncontrolled "drift" and data distortion inherent in standard binary floating-point types.
 * **FPU-Free Efficiency:** Performs complex floating-point math using pure integer bitwise logic. Ideal for High-Performance Computing (HPC) and **Edge AI** on 8/16/32/64-bit registers.
 
@@ -18,7 +18,7 @@ The current IEEE 754 standard is strictly binary-oriented, often ignoring the "r
 **NPAt redefines the binary processor's role:**
 1.  **Accountability for Conversion:** Unlike IEEE 754, the NPAt paradigm explicitly accounts for the initial conversion error. This ensures the starting point of any calculation is mathematically anchored to the original decimal intent.
 2.  **Decimal-to-Decimal Integrity:** Engineered to provide maximum achievable decimal precision on output, ensuring results remain consistent for audit and financial control.
-3.  **Efficient Instrumentation:** While core operations leverage binary speed, the format acts as a precise instrument for decimal logic, providing a reliable "truth" for scientific verification.
+3.  **Efficient Instrumentation:**  By performing binary calculations on a standard binary CPU, this format enables high-precision decimal calculations with controlled digit precision in decimal output.
 
 ## 💡 Two Implementation Pathways
 This research demonstrates two distinct approaches based on the NPAt format:
