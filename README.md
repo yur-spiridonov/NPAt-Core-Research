@@ -1,6 +1,8 @@
 
 # NPAt Core: A New Paradigm in Binary Arithmetic
 
+Status: U.S. Patent Pending (USPTO № 19/254,239)
+
 📄 **[Download Technical Presentation (PDF)](https://github.com/yur-spiridonov/NPAt-Core-Research/blob/main/NPAt_Core_Numerical_Integrity_Presentation.pdf)**
 
 ## 🚀 The Mission
