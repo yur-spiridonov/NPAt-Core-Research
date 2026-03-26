@@ -26,7 +26,6 @@ The current IEEE 754 standard is strictly binary-oriented, often ignoring the "r
 This research demonstrates two distinct approaches based on the NPAt format:
 
 1.  **Bit-for-Bit IEEE 754 Compatibility:** An alternative algorithm that produces results **identical** to the standard, but executes on the ALU significantly faster than software emulation.
-    * *View verification screenshots:* [yur-spiridonov/PresentationNPat](https://github.com/yur-spiridonov/PresentationNPat)
 2.  **The NPAt Core Strategy (NPAt_Demo):** A native algorithm that exceeds the standard in precision and simplicity. Its efficiency is derived from the structural features of the NPAt format, allowing for more effective use of existing CPU architectures compared to traditional `double`.
     * *Current Repository:* High-precision core with 64-bit mantissa.
 
