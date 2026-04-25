@@ -255,6 +255,19 @@ Key observations:
 
 > **Note:** If Windows displays a security warning, click "More info" → "Run anyway". This is standard for independent research tools without commercial code signing.
 
+### NPAt_Core.lib
+
+A proprietary compiled library implementing the NPAt Core algorithm, included for demonstration and research purposes. The source code of the NPAt algorithm is proprietary and not publicly available.
+
+To use in your project:
+1. Add `NPAt_Interface.h` to your project
+2. Link `NPAt_Core.lib` (Visual Studio: Project Properties → Linker → Input → Additional Dependencies)
+3. Set configuration to `Release | x64` and build
+
+> **Note:** This library is provided for research and evaluation purposes only. Commercial use requires a licensing agreement.
+
+For licensing inquiries: open an [Issue](https://github.com/yur-spiridonov/NPAt-Core-Research/issues) or contact directly: [spiridonoviouri@gmail.com](mailto:spiridonoviouri@gmail.com)
+
 ---
 
 ## 👤 About the Author
