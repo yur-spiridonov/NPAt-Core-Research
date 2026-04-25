@@ -255,11 +255,6 @@ Key observations:
 
 > **Note:** If Windows displays a security warning, click "More info" → "Run anyway". This is standard for independent research tools without commercial code signing.
 
-### For Developers (Integration)
-1. Add `main.cpp` and `NPAt_Interface.h` to your project
-2. Link `NPAt_Core.lib` (Visual Studio: Project Properties → Linker → Input → Additional Dependencies)
-3. Set configuration to `Release | x64` and build
-
 ---
 
 ## 👤 About the Author
