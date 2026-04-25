@@ -1,61 +1,123 @@
-
 # NPAt Core: A New Paradigm in Binary Arithmetic
 
-Status: U.S. Patent Pending (USPTO № 19/254,239)
+**Status: U.S. Patent Pending (USPTO № 19/254,239)**
 
-📄 **[Download Technical Presentation (PDF)](https://github.com/yur-spiridonov/NPAt-Core-Research/blob/main/NPAt_Core_Numerical_Integrity_Presentation.pdf)**
+📄 [Download Technical Presentation (PDF)](NPAt_Core_Numerical_Integrity_Presentation.pdf)
+
+---
 
 ## 🚀 The Mission
-Modern computing (the current **IEEE 754** standard) often faces structural inefficiencies and data distortion in high-volume summation. **NPAt (Number with Point After t)** is a disruptive numerical format designed to leverage the full hardware potential of modern CPUs, ensuring superior performance and controlled precision by bypassing traditional FPU limitations.
+
+NPAt (Number with Point After t) is a new numerical format and computational paradigm that enables full floating-point arithmetic — summation, and in future development multiplication, division and beyond — on any processor, **without a dedicated hardware FPU**.
+
+This means 100% portability: identical, verified results on any platform, from high-performance servers to embedded controllers and autonomous AI devices. This is precisely the portability goal for which IEEE 754 was originally created — now achievable entirely in software.
+
+---
 
 ## 🛠 Key Technical Advantages
-* **Architectural Synergy:** Unlike the current IEEE 754 standard, NPAt is natively optimized for **64-bit integer ALUs**. It bypasses FPU-specific overhead—such as subnormal numbers, mandatory normalization, and complex rounding modes—significantly reducing CPU cycles per operation.
-* **Superior Performance:** Up to **9 times faster** than software-emulated IEEE 754  implementations. By utilizing native integer registers, NPAt challenges the efficiency of standard hardware `double` in high-precision computational chains.
-* **Controlled Precision:** The architecture ensures longer retention of significant digits during long sequences of arbitrary values, minimizing the uncontrolled "drift" and data distortion inherent in standard binary floating-point types.
-* **FPU-Free Efficiency:** Performs complex floating-point math using pure integer bitwise logic. Ideal for High-Performance Computing (HPC) and **Edge AI** on 8/16/32/64-bit registers.
 
-## 🎯 The Paradigm: Binary Hardware as a Tool for Decimal Computation
-The current IEEE 754 standard is strictly binary-oriented, often ignoring the "representation error" that occurs the moment a decimal input is converted. This initial discrepancy becomes the foundation for cumulative distortion.
+**FPU-Free Execution.** NPAt performs floating-point computations using only 64-bit integer ALU instructions. No FPU required — eliminating a costly and power-hungry hardware block from the design.
 
-**NPAt redefines the binary processor's role:**
-1.  **Accountability for Conversion:** Unlike IEEE 754, the NPAt paradigm explicitly accounts for the initial conversion error. This ensures the starting point of any calculation is mathematically anchored to the original decimal intent.
-2.  **Decimal-to-Decimal Integrity:** Engineered to provide maximum achievable decimal precision on output, ensuring results remain consistent for audit and financial control.
-3.  **Efficient Instrumentation:**  By performing binary calculations on a standard binary CPU, this format enables high-precision decimal calculations with controlled digit precision in decimal output.
+**Verified Performance.** NPAt Pathway 1 — the first algorithm built on the NPAt format — runs **×2.12 faster than hardware FPU** on subnormal inputs, and **×1.46–2.26×** across a wide range of input types. This is measured against native hardware `ADDSD`, not software emulation.
+
+**Bit-Exact IEEE 754 Compatibility.** Results are bit-for-bit identical to IEEE 754 `double`, verified to 50 decimal places over 10⁹ iterations. All existing software can be migrated to FPU-free processors without modification.
+
+**No Subnormal Numbers.** The NPAt format has no concept of subnormal numbers — eliminating the need for special handling and the associated performance penalty on hardware FPU.
+
+**Explicit Exact Zero.** NPAt introduces explicit exact zero, resolving ambiguities in IEEE 754 signed zero semantics (±0).
+
+**User-Controlled Precision.** The precision parameter `t` is set by the user and does not affect the computation algorithm — enabling easy adaptation to different precision requirements on the same hardware.
+
+---
+
+## 📊 Verified Benchmark Results
+
+| Input Type | HW cycles/iter | NPAt cycles/iter | Speedup |
+|---|:---:|:---:|:---:|
+| Subnormal (−9.999e−311) | 5.2147 | 2.4553 | **×2.12** |
+| Normal fractional (0.125 / 0.625) | 5.2580 | 2.3242 | **×2.26** |
+| Large integers (e+06 / e+09) | 5.4411 | 2.5621 | **×2.12** |
+| Extreme magnitude (e+200) | 5.2394 | 2.6708 | **×1.96** |
+| Small normal, subtraction | 5.4773 | 3.7429 | **×1.46** |
+
+All tests: Z = 1,000,000,000 iterations · MSVC /O2 · Windows 11 · Core 0 · REALTIME_PRIORITY_CLASS
+
+🔬 **Full benchmark source and results:**
+[github.com/yur-spiridonov/Benchmark_Hardware-vs-NPAt-](https://github.com/yur-spiridonov/Benchmark_Hardware-vs-NPAt-)
+
+---
 
 ## 💡 Two Implementation Pathways
-This research demonstrates two distinct approaches based on the NPAt format:
 
-1.  **Bit-for-Bit IEEE 754 Compatibility:** An alternative algorithm that produces results **identical** to the standard, but executes on the ALU significantly faster than software emulation.
-2.  **The NPAt Core Strategy (NPAt_Demo):** A native algorithm that exceeds the standard in precision and simplicity. Its efficiency is derived from the structural features of the NPAt format, allowing for more effective use of existing CPU architectures compared to traditional `double`.
-    * *Current Repository:* High-precision core with 64-bit mantissa.
+**Pathway 1 — Bit-for-Bit IEEE 754 Compatibility** *(proprietary, closed source)*
+An algorithm that produces results identical to IEEE 754 `double`, but executes on the integer ALU faster than hardware FPU. Enables direct migration of existing software to FPU-free processors.
 
-## 📜 Intellectual Property & Research
-* **U.S. Patent Pending (USPTO № 19/254,239):** APPARATUS FOR ITERATIVELY SUMMING BINARY EQUIVALENTS OF DECIMAL NUMBERS.
-* **TechRxiv Preprints:** Published research on decimal-to-binary equivalence and computational stability.
+**NPAt Core Strategy — NPAt_Demo** *(available in this repository)*
+A native NPAt algorithm that exceeds IEEE 754 in precision and simplicity. Uses a 64-bit mantissa for high-precision iterative calculations.
+
+---
+
+## 🔬 Theoretical Foundation
+
+The NPAt format is based on the representation of any number X as:
+
+```
+X̂ = S · K̂ · β^q
+```
+
+Where S is the sign, K̂ is an integer mantissa, and q is the rounding coefficient (RC). All parameters are integers — enabling all computations in two's complement integer arithmetic.
+
+Key properties:
+- No normalization required during summation
+- No subnormal numbers
+- Explicit exact zero
+- Monotonically increasing sequence from minimum to maximum representable value
+- Precision parameter `t` independent of the computation algorithm
+
+📄 [Full theoretical paper](https://github.com/yur-spiridonov/PresentationNPat)
+
+---
 
 ## 📥 Quick Start
 
 ### For Users (Demo)
-1. **[Download NPAt_Demo.exe (Direct Link)](https://github.com/yur-spiridonov/NPAt-Core-Research/raw/main/NPAt_Demo.exe)**
-2. Run the application to compare **NPAt precision stability**.
+1. Download [NPAt_Demo.exe](NPAt_Demo.exe)
+2. Run the application to compare NPAt precision stability against IEEE 754
 
-> **Note:** If Windows displays a warning (yellow or blue window), click **"More info"** and then **"Run anyway"** (or **"Yes"**). This is required for independent research tools.
+> **Note:** If Windows displays a security warning, click "More info" → "Run anyway". This is standard for independent research tools without commercial code signing.
 
 ### For Developers (Integration)
-1. Add **[main.cpp](https://github.com/yur-spiridonov/NPAt-Core-Research/blob/main/main.cpp)** and **[NPAt_Interface.h](https://github.com/yur-spiridonov/NPAt-Core-Research/blob/main/NPAt_Interface.h)** to your project.
-2. Link **[NPAt_Core.lib](https://github.com/yur-spiridonov/NPAt-Core-Research/blob/main/NPAt_Core.lib)** (In Visual Studio: *Project Properties -> Linker -> Input -> Additional Dependencies*).
-3. Set configuration to **Release | x64** and build.
-
----
----
-## 👤 About the Author: Iouri Spiridonov
-**Independent Researcher | Former Head of Laboratory at NPO "Agat"**
-* **USSR State Prize Laureate** & recipient of the Medal for Labor Distinction.
-* **Prolific Inventor:** Holder of **18 Invention Certificates** and **2 patents** in related fields of digital architecture and computational systems.
-* **Expertise:** Over 20 years of R&D in the **development of digital systems**, specializing in high-reliability hardware-software integration and numerical algorithms.
-* **Current Focus:** Optimization of binary arithmetic for modern CPU architectures (U.S. Patent Pending).
+1. Add `main.cpp` and `NPAt_Interface.h` to your project
+2. Link `NPAt_Core.lib` (Visual Studio: Project Properties → Linker → Input → Additional Dependencies)
+3. Set configuration to `Release | x64` and build
 
 ---
 
+## 🗂 Related Repositories
+
+| Repository | Description |
+|---|---|
+| [Benchmark_Hardware-vs-NPAt-](https://github.com/yur-spiridonov/Benchmark_Hardware-vs-NPAt-) | Hardware IEEE 754 baseline benchmark — open source, independently reproducible |
+| [PresentationNPat](https://github.com/yur-spiridonov/PresentationNPat) | Early results: NPAt vs IEEE 754 across 7 input types |
+
 ---
-*Developed for research purposes. Internal algorithms and mantissa alignment logic are proprietary.*
+
+## 📜 Intellectual Property & Research
+
+- **U.S. Patent Pending (USPTO № 19/254,239):** APPARATUS FOR ITERATIVELY SUMMING BINARY EQUIVALENTS OF DECIMAL NUMBERS
+- **TechRxiv Preprints:** Published research on decimal-to-binary equivalence and computational stability
+
+---
+
+## 👤 About the Author
+
+**Iouri Spiridonov** · Independent Researcher · Newmarket, ON, Canada
+
+- Former Head of Laboratory at NPO "Agat"
+- USSR State Prize Laureate · Medal for Labor Distinction
+- Holder of 18 Invention Certificates and 2 patents in digital architecture and computational systems
+- Over 20 years of R&D in digital systems, hardware-software integration and numerical algorithms
+
+---
+
+*Internal algorithms and mantissa alignment logic of NPAt Pathway 1 are proprietary. All IP rights reserved. NDA available upon request.*
