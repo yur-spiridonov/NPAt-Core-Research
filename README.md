@@ -18,7 +18,8 @@ This means 100% portability: identical, verified results on any platform, from h
 
 **FPU-Free Execution.** NPAt performs floating-point computations using only 64-bit integer ALU instructions. No FPU required — eliminating a costly and power-hungry hardware block from the design.
 
-**Verified Performance.** NPAt Pathway 1 — the first algorithm built on the NPAt format — runs **×2.12 faster than hardware FPU** on subnormal inputs, and **×1.46–2.26×** across a wide range of input types. This is measured against native hardware `ADDSD`, not software emulation.
+**Verified Performance.** NPAt-algorithm <img width="246" height="70" alt="image" src="https://github.com/user-attachments/assets/b7cf8c74-6325-466f-a128-ed7fe0bac039" />
+ — the first algorithm built on the NPAt format — runs **×2.12 faster than hardware FPU** on subnormal inputs, and **×1.46–2.26×** across a wide range of input types. This is measured against native hardware `ADDSD`, not software emulation.
 
 **Bit-Exact IEEE 754 Compatibility.** Results are bit-for-bit identical to IEEE 754 `double`, verified to 50 decimal places over 10⁹ iterations. All existing software can be migrated to FPU-free processors without modification.
 
@@ -78,7 +79,7 @@ NPAt defines two data types:
 - **Numbers**, consisting of exact values, approximate values, and explicit zero
 - **Non-numbers** (NaN)
 
-The presence of explicit zero allows bitwise comparison across the entire floating-point range. NPAt forms a monotonically increasing sequence throughout the range from the minimum to the maximum possible values. It also allows representation of positive and negative numbers whose magnitudes are smaller than the minimum representable value — such numbers can be considered infinitesimal, but not equal to zero.
+The presence of an explicit zero allows bitwise comparison across the entire floating-point range. NPAt forms a monotonically increasing sequence throughout the range from the minimum to the maximum possible values. It also allows representation of positive and negative numbers whose magnitudes are smaller than the minimum representable value — such numbers can be considered infinitesimal, but not equal to zero.
 
 Parameters representing signed NPAt numbers are integers or zero, so all computations can be performed in two's complement code. When summing numbers in NPAt format, normalization is not required. The NPAt format has no concept of subnormal numbers, eliminating the need for special handling. Finally, the precision parameter in NPAt does not affect the computation algorithm.
 
@@ -186,7 +187,7 @@ The values of RC q set the position of the radix point in NPAt X̂ relative to N
 
 In IEEE 754, if e < e_min and K̃ = 0, such X̃ is taken as ±0. The standard lacks representation of explicit exact zero. This leads to ambiguity — for example: 1/+0 and 1/−0. If +0 and −0 are not equal to exact zero, then 1/+0 = +∞ and 1/−0 = −∞. At the same time, for exact zero: 1/0 = NaN.
 
-In NPAt, explicit exact zero is obtained when subtracting equal exact numbers X̄:
+In NPAt, an explicit exact zero is obtained when subtracting equal exact numbers X̄:
 - If during calculations with exact values X̄ we obtain K̄ = 0 → X̄ is **exactly equal to zero**
 - If at least one operand is inexact, the obtained X̂ with K̂ = 0 is an **infinitely small number** (positive +0 or negative −0)
 
@@ -281,4 +282,5 @@ For licensing inquiries: open an [Issue](https://github.com/yur-spiridonov/NPAt-
 
 ---
 
-*Internal algorithms and mantissa alignment logic of NPAt Pathway 1 are proprietary. All IP rights reserved. NDA available upon request.*
+*Internal algorithms and mantissa alignment logic of NPAt-algorithm <img width="246" height="70" alt="image" src="https://github.com/user-attachments/assets/95a1068a-eead-47e9-91fb-12f0f63b96f0" />
+ are proprietary. All IP rights reserved. NDA available upon request.*
