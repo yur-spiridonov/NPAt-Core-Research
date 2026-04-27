@@ -2,7 +2,7 @@
 
 **Status: U.S. Patent Pending (USPTO № 19/254,239)**
 
-📄 [Download Technical Presentation (PDF)](NPAt_Core_Numerical_Integrity_Presentation.pdf)
+
 
 ---
 
