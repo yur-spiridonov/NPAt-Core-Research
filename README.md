@@ -50,8 +50,8 @@ All tests: Z = 1,000,000,000 iterations · MSVC /O2 · Windows 11 · Core 0 · R
 **NPAt — Software Beats Hardware** *(proprietary, closed source)*
 An algorithm that produces results identical to IEEE 754 `double`, but executes on the integer ALU ×1.46–2.26 faster than hardware FPU. Enables direct migration of existing software to FPU-free processors. If implemented in FPU microcode, the potential speedup could be an order of magnitude higher.
 
-**NPAt Core Strategy — NPAt_Demo** *(available in this repository)*
-A native NPAt algorithm that exceeds IEEE 754 in precision and simplicity. Uses a 64-bit mantissa for high-precision iterative calculations.
+**NPAt Core Strategy** *(in development)*
+A native NPAt algorithm that exceeds IEEE 754 in precision and simplicity. Uses a 64-bit mantissa for high-precision iterative calculations. To be published separately.
 
 ---
 
@@ -242,29 +242,6 @@ Key observations:
 
 - **U.S. Patent Pending (USPTO № 19/254,239):** APPARATUS FOR ITERATIVELY SUMMING BINARY EQUIVALENTS OF DECIMAL NUMBERS
 - **TechRxiv Preprints:** Published research on decimal-to-binary equivalence and computational stability
-
----
-
-## 📥 Quick Start
-
-### For Users (Demo)
-1. Download [NPAt_Demo.exe](NPAt_Demo.exe)
-2. Run the application to compare NPAt precision stability against IEEE 754
-
-> **Note:** If Windows displays a security warning, click "More info" → "Run anyway". This is standard for independent research tools without commercial code signing.
-
-### NPAt_Core.lib
-
-A proprietary compiled library implementing the NPAt Core algorithm, included for demonstration and research purposes. The source code of the NPAt algorithm is proprietary and not publicly available.
-
-To use in your project:
-1. Add `NPAt_Interface.h` to your project
-2. Link `NPAt_Core.lib` (Visual Studio: Project Properties → Linker → Input → Additional Dependencies)
-3. Set configuration to `Release | x64` and build
-
-> **Note:** This library is provided for research and evaluation purposes only. Commercial use requires a licensing agreement.
-
-For licensing inquiries: open an [Issue](https://github.com/yur-spiridonov/NPAt-Core-Research/issues) or contact directly: [spiridonoviouri@gmail.com](mailto:spiridonoviouri@gmail.com)
 
 ---
 
