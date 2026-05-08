@@ -40,18 +40,18 @@ This means 100% portability: identical, verified results on any platform, from h
 
 All tests: Z = 1,000,000,000 iterations · MSVC /O2 · Windows 11 · Core 0 · REALTIME_PRIORITY_CLASS
 
-🔬 **Full benchmark source and results:**
-[github.com/yur-spiridonov/Benchmark_Hardware-vs-NPAt-](https://github.com/yur-spiridonov/Benchmark_Hardware-vs-NPAt-)
-
 ---
 
-## 💡 Two Implementation Pathways
+## 💡 NPAt-algorithm *(open source)*
 
-**NPAt — Software Beats Hardware** *(proprietary, closed source)*
-An algorithm that produces results identical to IEEE 754 `double`, but executes on the integer ALU ×1.46–2.26 faster than hardware FPU. Enables direct migration of existing software to FPU-free processors. If implemented in FPU microcode, the potential speedup could be an order of magnitude higher.
+The core implementation is publicly available in the **[yur-spiridonov/NPAt_algorithm](https://github.com/yur-spiridonov/NPAt_algorithm)** repository. It contains two programs:
 
-**NPAt Core Strategy** *(in development)*
-A native NPAt algorithm that exceeds IEEE 754 in precision and simplicity. Uses a 64-bit mantissa for high-precision iterative calculations. To be published separately.
+| File | Description |
+|---|---|
+| [npat_demo_precision.cpp](https://github.com/yur-spiridonov/NPAt_algorithm/blob/main/npat_demo_precision.cpp) | NPAt summation algorithm — demonstrates variable-precision computation at different values of `t` (from t=4 to t=53) |
+| [npat_benchmark.cpp](https://github.com/yur-spiridonov/NPAt_algorithm/blob/main/npat_benchmark.cpp) | Performance benchmark — compares NPAt algorithm against native IEEE 754 hardware FPU (`ADDSD`) |
+
+This algorithm produces results identical to IEEE 754 `double`, but executes on the integer ALU **×1.46–2.26× faster** than hardware FPU. Enables direct migration of existing software to FPU-free processors.
 
 ---
 
@@ -59,8 +59,9 @@ A native NPAt algorithm that exceeds IEEE 754 in precision and simplicity. Uses 
 
 | Repository | Description |
 |---|---|
-| [Benchmark_Hardware-vs-NPAt-](https://github.com/yur-spiridonov/Benchmark_Hardware-vs-NPAt-) | Hardware IEEE 754 baseline benchmark — open source, independently reproducible |
-| [PresentationNPat](https://github.com/yur-spiridonov/PresentationNPat) | Early results: NPAt vs IEEE 754 across 7 input types |
+| [yur-spiridonov/NPAt_algorithm](https://github.com/yur-spiridonov/NPAt_algorithm) | **Open source** — NPAt summation algorithm and IEEE 754 benchmark |
+| [Benchmark_Hardware-vs-NPAt-](https://github.com/yur-spiridonov/Benchmark_Hardware-vs-NPAt-) | Performance results: NPAt vs hardware IEEE 754 FPU — independently reproducible |
+| [PresentationNPat](https://github.com/yur-spiridonov/PresentationNPat) | Precision comparison results: NPAt vs IEEE 754 across multiple input types |
 
 ---
 
@@ -256,4 +257,4 @@ Key observations:
 
 ---
 
-*Internal algorithms and mantissa alignment logic of NPAt-algorithm are proprietary. All IP rights reserved. NDA available upon request.*
+*NPAt-algorithm is open source — see [yur-spiridonov/NPAt_algorithm](https://github.com/yur-spiridonov/NPAt_algorithm). NPAt Core Strategy is in development. All IP rights reserved. NDA available upon request.*
