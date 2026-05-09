@@ -16,7 +16,7 @@ This means 100% portability: identical, verified results on any platform, from h
 
 **FPU-Free Execution.** NPAt performs floating-point computations using only 64-bit integer ALU instructions. No FPU required — eliminating a costly and power-hungry hardware block from the design.
 
-**Verified Performance.** NPAt-algorithm — the first algorithm built on the NPAt format — runs **×2.12 faster than hardware FPU** on subnormal inputs, and **×1.46–2.26×** across a wide range of input types. This is measured against native hardware `ADDSD`, not software emulation.
+**Verified Performance.** NPAt-algorithm — the first algorithm built on the NPAt format — runs **×1.46–×2.26 faster than hardware FPU** across a wide range of input types. Performance is independent of the scale factor (exponent). This is measured against native hardware `ADDSD`, not software emulation.
 
 **Bit-Exact IEEE 754 Compatibility.** Results are bit-for-bit identical to IEEE 754 `double`, verified to 50 decimal places over 10⁹ iterations. All existing software can be migrated to FPU-free processors without modification.
 
