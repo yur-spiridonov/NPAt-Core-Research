@@ -44,12 +44,14 @@ All tests: Z = 1,000,000,000 iterations · MSVC /O2 · Windows 11 · Core 0 · R
 
 ## 💡 NPAt-algorithm *(open source)*
 
-The core implementation is publicly available in the **[yur-spiridonov/NPAt_algorithm](https://github.com/yur-spiridonov/NPAt_algorithm)** repository. It contains two programs:
+The full implementation is publicly available in the **[yur-spiridonov/NPAt_algorithm](https://github.com/yur-spiridonov/NPAt_algorithm)** repository. It contains four programs:
 
-| File | Description |
-|---|---|
-| [npat_demo_precision.cpp](https://github.com/yur-spiridonov/NPAt_algorithm/blob/main/npat_demo_precision.cpp) | NPAt summation algorithm — demonstrates variable-precision computation at different values of `t` (from t=4 to t=53) |
-| [npat_benchmark.cpp](https://github.com/yur-spiridonov/NPAt_algorithm/blob/main/npat_benchmark.cpp) | Performance benchmark — compares NPAt algorithm against native IEEE 754 hardware FPU (`ADDSD`) |
+| # | File | Description |
+|---|---|---|
+| 1 | [npat_vs_ieee754_compare.cpp](https://github.com/yur-spiridonov/NPAt_algorithm/blob/main/npat_vs_ieee754_compare.cpp) | Verifies bit-exact identity of NPAt and IEEE 754 over 10⁹ iterations |
+| 2 | [npat_benchmark.cpp](https://github.com/yur-spiridonov/NPAt_algorithm/blob/main/npat_benchmark.cpp) | NPAt performance benchmark — measures ALU cycles per iteration |
+| 3 | [HardwareIEEE754.cpp](https://github.com/yur-spiridonov/NPAt_algorithm/blob/main/HardwareIEEE754.cpp) | Hardware IEEE 754 benchmark — measures native FPU cycles per iteration |
+| 4 | [npat_demo_precision.cpp](https://github.com/yur-spiridonov/NPAt_algorithm/blob/main/npat_demo_precision.cpp) | Demonstrates the same NPAt algorithm running at different values of `t` (from t=4 to t=53) |
 
 This algorithm produces results identical to IEEE 754 `double`, but executes on the integer ALU **×1.46–2.26× faster** than hardware FPU. Enables direct migration of existing software to FPU-free processors.
 
