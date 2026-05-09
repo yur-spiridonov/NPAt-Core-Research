@@ -189,7 +189,7 @@ In NPAt, explicit exact zero is obtained when subtracting equal exact numbers X�
 - If during calculations with exact values X̄ we obtain K̄ = 0 → X̄ is **exactly equal to zero**
 - If at least one operand is inexact, the obtained X̂ with K̂ = 0 is an **infinitely small number** (positive +0 or negative −0)
 
-By their nature, signed zeros in IEEE 754 are positive (+0) and negative (−0) infinitely small numbers.
+In IEEE 754, numbers with an exponent below e_min and K = 0 are treated as signed zero. However, by their nature, such unrepresentable numbers are in fact infinitely small — not true zeros.
 
 In NPAt there is no ambiguity:
 ```
