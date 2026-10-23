@@ -6,7 +6,7 @@
 
 ## 🚀 The Mission
 
-NPAt (Number with Point After t) is a new numerical format and computational paradigm that enables full floating-point arithmetic — summation, and in future development multiplication, division and beyond — on any processor, **without a dedicated hardware FPU**.
+NPAt (Number with Point After t) is a new numerical format and computational paradigm that makes it possible to implement full floating-point arithmetic — summation, and in future development multiplication, division and beyond — on any processor, without a dedicated hardware FPU. The same abbreviation also reads as Numeric Precision with Accuracy Tracking: the format tracks the accuracy of every result within a chosen precision. In the theoretical description of the arithmetic it is written NPAT.
 
 This means 100% portability: identical, verified results on any platform, from high-performance servers to embedded controllers and autonomous AI devices. This is precisely the portability goal for which IEEE 754 was originally created — now achievable entirely in software.
 
